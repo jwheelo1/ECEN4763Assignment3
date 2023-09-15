@@ -6,7 +6,7 @@ In this assignment you will create 2 classes. A class for HashMap and Graphs. Pl
 
 ## Goal
 
-The main goal for this assignment is to learn how to create classes, generate UTs, understand how each assignment will be graded, and ensure you understand basic data structures.
+The main goal for this assignment is to understand graphs and hashmaps.
 
 ## Grading
 

@@ -1,6 +1,6 @@
 # Data Structures Graph
 
-Graph is a non-linear data structure. It consists of a finite number of vertices and edges. Vertices are also known as nodes. The nodes are linked to one another with the help of the edges. A pair of (x,y) edge connects the node x with node y.
+Graph is a non-linear data structure. It consists of a finite number of vertices and edges. Vertices are also known as nodes. The nodes are linked to one another with the help of the edges. In this graph, edges will be directional, i.e. if an edge goes from vertex1 to vertex2, it does not necessarily mean that an edge goes from vertex2 to vertex1. The graph will be implemented as an adjacency list.
 
 ## Getting Started Steps
 
@@ -33,15 +33,15 @@ Graph is a non-linear data structure. It consists of a finite number of vertices
         }
 - The function is_empty(self) returns True if the graph is empty, False if populated.
 - The function empty(self) empties the graph.
-- The function remove_vertex(self, vertex) removes the passed vertex and returns the same, else return None.
-- The function remove_edge(self, vertex1, vertex2) removes the edges and returns {'vertex1': 'vertex2'} if successful, else return None.
+- The function remove_vertex(self, vertex) removes the passed vertex and returns the removed vertex. If the vertex is not found, return None.
+- The function remove_edge(self, vertex1, vertex2) removes the edges and returns {vertex1: vertex2} if successful, else return None.
 - The function get_vertices(self) returns the list of all vertices in the graph.
 - The function contains(self, vertex) returns True if the value is present in the graph, else returns False.
 - The function get_edges(self) returns a list of all the edge pairs.
-- The function add_vertex(self, vertex) adds a vertex to the graph and returns the number of edges associated with the vertex.
-- The function add_edge(self, vertex1, vertex2) adds an edge between vertex 1 and vertex 2.
-- The function get_number_of_edges(self, vertex) returns the number of edges associated with the passed vertex.
-- The function get_neighbors(self, node) returns all of the vertixes connected to the node passed in (return empty list if the graph is empty or if the node does not exist)
+- The function add_vertex(self, vertex) adds a vertex to the graph.
+- The function add_edge(self, vertex1, vertex2) adds an edge between vertex 1 and vertex 2. If vertex1 or vertex2 are not yet in the graph, add them and then add the edge.
+- The function get_number_of_edges(self, vertex) returns the number of edges starting at the passed vertex.
+- The function get_neighbors(self, node) returns all of the vertixes going out of the node passed in (return empty list if the graph is empty or if the node does not exist)
 - The function get_time_complexity(self), returns the time complexity of adding an edge to the data structure, return a string, example: return 'O(|V|^15)'.
 
 ## Tests
@@ -55,6 +55,7 @@ Graph is a non-linear data structure. It consists of a finite number of vertices
 ## Corner Cases
 
 - Removal of nonexistent vertices and edges
+- Edges going to and from new vertices
 
 ## Library
 

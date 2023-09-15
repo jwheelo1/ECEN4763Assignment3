@@ -1,6 +1,6 @@
 # Data Structures HashMap
 
-Hashmap is a data structure that maps a key to a value. It implements an associative array. This data structure is faster than arrays and linked list. Most data types can be used for keys.
+Hashmap is a data structure that maps a key to a value. It implements an associative array. This data structure is faster than arrays and linked lists. Most data types can be used for keys.
 
 ## Getting Started Steps
 
@@ -23,20 +23,7 @@ Hashmap is a data structure that maps a key to a value. It implements an associa
 
 ## Interface
 
-- The initiazation function will create the hashmap
-    - Note: the hashmap must be an array of arrays. The number of arrays is the size of the hash, for example if my hashmap size was 4:
-    [[], [], [], []]
-- The function add_value(self, key, value) adds key and value (updates if key is identical)
-    - If the key already exists then you need to append the (key, value) pair onto the list for that hash value
-- The function get_value(self, key) return the value in the specified key
-- The function delete_value(self, key) deletes a key and returns value if delete, None if key does not exist
-- The function get_keys(self) returns all keys in the form ['A', 'B', etc]
-- The function get_as_str(self) returns the hashmap in the form "[('A', 1)][('B', 2)][][][]" (for key 'A' = value 1 and key 'B' = value 2) note if 2 values share a hash than it would look like "[('A', 1), ('F', 6)][][][][]" (for key 'A' = value 1 and 'F' = value 6)
-- The function get_as_dict(self) returns the hashmap in the form {0: {'Z': 36}, 3: {'X': 12}, 4: {'Y': 24}}
-    - Note: 0 is the index into the array
-- The function get_space_complexity() returns the space complexity of the data structure
-- The function get_time_complexity() returns the time complexity of get_value in the data structure
-- You must use the following hash function:
+- You must use the following hash function when implementing the functions below:
 ```python
     def _get_hash(self, key):
         """Get hash value of key."""
@@ -45,6 +32,22 @@ Hashmap is a data structure that maps a key to a value. It implements an associa
             user_hash += ord(char)
         return user_hash % self.size
 ```
+- The initiazation function __init__(self, size) will create the hashmap
+    - Note: the hashmap must be an array of arrays. The number of arrays is the size of the hash, for example if my hashmap size was 4:
+    [[], [], [], []]
+    - Each array will contain key value pairs which have a hash value of the given index.
+- The function add_value(self, key, value) adds key and value to the hashmap
+    - A hash value should be found, and used as an index to the hashmap
+    - If the key already exists then you need to append the (key, value) pair onto the list for that hash value
+    - Otherwise, you need to append the key value pair to the list for that hash value
+- The function get_value(self, key) return the value in the specified key, None if not found
+- The function delete_value(self, key) deletes a key and returns value if delete, None if key does not exist
+- The function get_keys(self) returns a list of all keys in the hashmap, in sorted order.
+- The function get_as_str(self) returns the hashmap in the form "[('A', 1)][('B', 2)][][][]" (for key 'A' = value 1 and key 'B' = value 2) note if 2 values share a hash than it would look like "[('A', 1), ('F', 6)][][][][]" (for key 'A' = value 1 and 'F' = value 6)
+- The function get_as_dict(self) returns the hashmap in the form {0: {'A':3, 'Z': 36}, 3: {'X': 12}, 4: {'Y': 24}}
+    - Note: 0 is the index into the array
+- The function get_space_complexity() returns the space complexity of the data structure
+- The function get_time_complexity() returns the time complexity of get_value in the data structure
 
 ## Tests
 
